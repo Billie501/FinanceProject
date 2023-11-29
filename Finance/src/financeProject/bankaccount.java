@@ -1,20 +1,24 @@
 package financeProject;
 
+import java.util.Scanner;
+
 public class bankaccount {
 	
+	public String name;
 	private String accountNumber;
 	private double balance;
 	
-	public bankaccount(String accountNumber, double initialBalance) {
-		this.accountNumber = accountNumber;
-		this.balance = initialBalance;
+	public bankaccount(String name) {
+		this.name = name;
+		this.accountNumber = getAccountNumber();
+		this.balance = getbalance();
 	}
 	
 	//Getter for Account Number
 	
 	public String getAccountNumber() {
 		
-		return accountNumber;
+		return name+" "+accountNumber;
 	}
 	
 	//Getter for Balance
@@ -47,7 +51,7 @@ public class bankaccount {
 			
 			balance -= amount;		
 			System.out.println("\nWithdrawal of $" +amount+ " has been made.\n"
-				+ "New balance: $" +balance);
+				+ "\nNew balance: $" +balance);
 		}
 		else {
 			System.out.println("\nInvalid withdrawal amount due to sufficient funds");
