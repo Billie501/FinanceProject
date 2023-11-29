@@ -1,21 +1,64 @@
 package financeProject;
 
+import java.util.Scanner;
+
 public class financemain {
 
 	public static void main(String[] args) {
-
-		bankaccount jim = new bankaccount("01-1234-1234567-00", 0.00);
 		
-		//double amount;
+		Scanner scanner = new Scanner(System.in);
 		
-		System.out.println(jim.getAccountNumber());
-		System.out.println(jim.getbalance());
+		// Get user input for account information
+		String name = enterAccountInfo(scanner);
 		
-		jim.depositMoney(120.03);
+		chores(scanner, name);
 		
-		jim.withdrawMoney(50.36);
+		// Create a new BankAccount instance with the provided name
+		bankaccount userAccount = new bankaccount(name);
+		}
+	
+			
+	public static String enterAccountInfo(Scanner scanner) {
 		
-
+		double initialBalance = 0.00;
+		System.out.println("Please enter your name: \n");
+		String name = scanner.nextLine();
+		
+		System.out.println("\nPlease enter your secret password: \n");
+		String accountNumber = scanner.nextLine();
+		
+		//System.out.println("\nPlease enter your bank balance: \n");
+		//double balance = scanner.nextDouble();
+		//scanner.nextLine();
+		
+		System.out.println("\nWelcome " +name+ 
+				"\n\nYour account number is " +accountNumber+ 
+				"\n\nYour Opening Balance is $" +initialBalance);
+		
+		return name;
+	
 	}
-
+	
+	
+	public static void chores(Scanner scanner, String name) {
+		
+		System.out.println("\nWould you like to earn extra money by helping out around the house? \n"
+				+ "Type Yes or No\n");
+		String replyChores = scanner.nextLine();
+		
+		if (replyChores.equals("yes") || (replyChores.equals("y")) || (replyChores.equals("Y"))
+				|| (replyChores.equals("Yes"))) {
+			System.out.println("\nGreat! That will earn you extra money to deposit in your bank account");
+			System.out.println("\n\nHow much money would you like to get paid for the job?\n");
+			double amount = scanner.nextDouble();
+			
+		
+			bankaccount userAccount = new bankaccount(name);
+			userAccount.depositMoney(amount);
+		
+		}
+	
+	}
+	
+		
 }
