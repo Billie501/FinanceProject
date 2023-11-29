@@ -54,7 +54,7 @@ public class bankaccount {
 				+ "\nNew balance: $" +balance);
 		}
 		else {
-			System.out.println("\nInvalid withdrawal amount due to sufficient funds");
+			System.out.println("\nYou don't have enough money I'm afraid.\nMaybe you should do more chores");
 		}
 	}
 	

@@ -7,17 +7,21 @@ public class financemain {
 	public static void main(String[] args) {
 		
 		Scanner scanner = new Scanner(System.in);
-		
+				
 		// Get user input for account information
 		String name = enterAccountInfo(scanner);
 		
-		chores(scanner, name);
-		
 		// Create a new BankAccount instance with the provided name
 		bankaccount userAccount = new bankaccount(name);
+		
+		chores(scanner, userAccount);
+		
+		spend(scanner, userAccount);
+		
+		
 		}
 	
-			
+					
 	public static String enterAccountInfo(Scanner scanner) {
 		
 		double initialBalance = 0.00;
@@ -39,8 +43,7 @@ public class financemain {
 	
 	}
 	
-	
-	public static void chores(Scanner scanner, String name) {
+	public static void chores(Scanner scanner, bankaccount userAccount) {
 		
 		System.out.println("\nWould you like to earn extra money by helping out around the house? \n"
 				+ "Type Yes or No\n");
@@ -52,11 +55,35 @@ public class financemain {
 			System.out.println("\n\nHow much money would you like to get paid for the job?\n");
 			double amount = scanner.nextDouble();
 			
-		
-			bankaccount userAccount = new bankaccount(name);
+			scanner.nextLine();
+			
+			//bankaccount userAccount = new bankaccount(name);
 			userAccount.depositMoney(amount);
-		
 		}
+		
+	}
+	
+	
+		
+		public static void spend(Scanner scanner, bankaccount userAccount) {
+			
+			System.out.println("\nWould you like to buy something with your money? \n"
+					+ "Type Yes or No\n");
+			String replyBuy = scanner.nextLine();
+			
+			if (replyBuy.equals("yes") || (replyBuy.equals("y")) || (replyBuy.equals("Y"))
+					|| (replyBuy.equals("Yes"))) {
+				System.out.println("\nWhat would you like to buy? \n");
+				String item = scanner.nextLine();
+				System.out.println(item+ " sounds like a great idea!\nHow much does it cost?");
+				double amount = scanner.nextDouble();
+				
+				scanner.nextLine();
+			
+				//bankaccount userAccount = new bankaccount(name);
+				userAccount.withdrawMoney(amount);
+			
+			}	
 	
 	}
 	
