@@ -1,2 +1,2 @@
 # FinanceProject
-This Rep includes Finance related projects including a bank account application
+It was school holidays. I tried to create a CLI to help teach my kids about the value of money... (another work in progress)
