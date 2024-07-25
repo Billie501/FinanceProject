@@ -1,2 +1,2 @@
 # FinanceProject
-It was school holidays. I tried to create a CLI to help teach my kids about the value of money... (another work in progress)
+It was school holidays. I created a simple CLI to help teach my kids about the value of money with the help of chores... 
